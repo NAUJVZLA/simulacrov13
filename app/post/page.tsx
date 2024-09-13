@@ -26,7 +26,6 @@ const PostsHome: React.FC = () => {
     }
   }, [router]);
 
-  // Función para obtener los posts
   const fetchPosts = async (token: string) => {
     try {
       const response = await fetch(POSTS_ENDPOINT, {
