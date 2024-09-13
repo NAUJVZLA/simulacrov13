@@ -213,7 +213,7 @@ const PostsHome: React.FC = () => {
               onChange={(e) =>
                 setEditPost({ ...editPost, title: e.target.value })
               }
-              placeholder="Título"
+              placeholder="Títuloo"
               required
             />
             <textarea
