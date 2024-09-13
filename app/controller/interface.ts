@@ -19,3 +19,8 @@ export interface InterfaceLike {
   quantity: number;
   post_id: number;
 }
+
+export interface Users {
+  id: number;
+  name: string;
+}
