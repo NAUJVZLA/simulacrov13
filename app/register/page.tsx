@@ -37,11 +37,14 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+    <div className="container">
+      <h1 className="formTitle">Register</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="formLabel" htmlFor="name">
+          Name
+        </label>
         <input
+          className="formInput"
           type="text"
           name="name"
           id="name"
@@ -50,8 +53,11 @@ const RegisterPage: React.FC = () => {
           required
           placeholder="name"
         />
-        <label htmlFor="email">Email</label>
+        <label className="formLabel" htmlFor="email">
+          Email
+        </label>
         <input
+          className="formInput"
           type="email"
           name="email"
           id="email"
@@ -60,8 +66,11 @@ const RegisterPage: React.FC = () => {
           required
           placeholder="email"
         />
-        <label htmlFor="password">Password</label>
+        <label className="formLabel" htmlFor="password">
+          Password
+        </label>
         <input
+          className="formInput"
           type="password"
           name="password"
           id="password"
@@ -70,7 +79,9 @@ const RegisterPage: React.FC = () => {
           required
           placeholder="password"
         />
-        <button type="submit">Registrar</button>
+        <button className="formButton" type="submit">
+          Registrar
+        </button>
       </form>
     </div>
   );

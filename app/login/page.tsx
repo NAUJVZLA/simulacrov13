@@ -42,34 +42,44 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="email"
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="password"
-        />
-        <button type="submit"> Iniciar Sesión</button>
-      </form>
-      <Link href="/register">
-        <h3>Si aun no tienes cuenta registrate</h3>
-      </Link>
+    <div className="login-container">
+      <div className="login-form">
+        <h1 className="login-title">Login</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email" className="login-label">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="Email"
+            className="login-input"
+          />
+          <label htmlFor="password" className="login-label">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Password"
+            className="login-input"
+          />
+          <button type="submit" className="login-button">
+            Iniciar Sesión
+          </button>
+        </form>
+        <Link href="/register" className="register-link">
+          Si aún no tienes cuenta, regístrate
+        </Link>
+      </div>
     </div>
   );
 };
