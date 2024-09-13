@@ -47,7 +47,6 @@ const PostsHome: React.FC = () => {
     }
   };
 
-  // Función para obtener los usuarios
   const fetchUsers = async (token: string) => {
     try {
       const response = await fetch(USERS_ENDPOINT, {
