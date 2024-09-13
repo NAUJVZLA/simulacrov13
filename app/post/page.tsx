@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Edit, Trash } from "lucide-react"; // Iconos de lucide-react
+import { Edit, Trash } from "lucide-react";
 import { InterfacePost } from "../controller/interface";
 import { Users } from "../controller/interface";
 import {
   post as POSTS_ENDPOINT,
   users as USERS_ENDPOINT,
-} from "../controller/api"; // Importar los endpoints desde ../controller/api
-
+} from "../controller/api";
 const PostsHome: React.FC = () => {
   const router = useRouter();
   const [posts, setPosts] = useState<InterfacePost[]>([]);
@@ -23,7 +22,7 @@ const PostsHome: React.FC = () => {
     if (!token) {
       router.push("./login");
     } else {
-      fetchUsers(token); // Pasar el token a las funciones de fetch
+      fetchUsers(token);
     }
   }, [router]);
 
@@ -32,11 +31,11 @@ const PostsHome: React.FC = () => {
     try {
       const response = await fetch(POSTS_ENDPOINT, {
         headers: {
-          Authorization: `Bearer ${token}`, // Incluir el token en la cabecera
+          Authorization: `Bearer ${token}`,
         },
       });
       if (response.status === 401) {
-        router.push("/login"); // Redirigir si el token no es válido
+        router.push("/login");
       }
       if (!response.ok) {
         throw new Error("Error al obtener los posts.");
@@ -54,11 +53,11 @@ const PostsHome: React.FC = () => {
     try {
       const response = await fetch(USERS_ENDPOINT, {
         headers: {
-          Authorization: `Bearer ${token}`, // Incluir el token en la cabecera
+          Authorization: `Bearer ${token}`,
         },
       });
       if (response.status === 401) {
-        router.push("/login"); // Redirigir si el token no es válido
+        router.push("/login");
       }
       if (!response.ok) {
         throw new Error("Error al obtener los usuarios.");
@@ -75,7 +74,6 @@ const PostsHome: React.FC = () => {
     }
   };
 
-  // Función para crear un nuevo post
   const handleCreatePost = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -85,12 +83,12 @@ const PostsHome: React.FC = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Incluir el token en la cabecera
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ ...newPost, user_id: userId }),
       });
       if (response.status === 401) {
-        router.push("/login"); // Redirigir si el token no es válido
+        router.push("/login");
       }
       if (!response.ok) {
         throw new Error("Error al crear el post.");
@@ -108,7 +106,6 @@ const PostsHome: React.FC = () => {
     setEditPost(post);
   };
 
-  // Función para actualizar un post
   const handleUpdatePost = async (e: React.FormEvent) => {
     e.preventDefault();
     if (editPost) {
